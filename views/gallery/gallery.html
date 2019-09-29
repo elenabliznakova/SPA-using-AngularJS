@@ -1,0 +1,53 @@
+<div ng-controller="ImagesCtrl" ng-init="setLocalStorage()">
+  <div>
+      <div class="row" style="height: 75px; width: 100%;">
+        <input type="text" data-ng-model="inputField" placeholder="Search by team name"
+               class="form-control input-lg"/>
+      </div>
+  </div>
+  <hr>
+  <br/>
+  <br/>
+  <div class="middle-container">
+    <div class="images-collection">
+      <div ng-if="loading">
+        Loading Data Plesase Wait...
+        <br/>
+        <br/>
+        <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif"/>
+      </div>
+      <div ng-repeat="team in teams | filter:inputField" class="image-container thumbnail">
+        <img ng-src="{{team.strTeamBadge || '../../../gallery/styles/images/default_soccer.png'}}"
+             title="{{team.strTeam}}">
+        <div class="caption">
+          <div class="image-info">
+            <h1>{{team.strTeam}}</h1>
+            <p>Stadium:
+              <span>{{team.strStadium || 'Not available'}}</span>
+            </p>
+            <p>Manager:
+              <span>{{team.strManager || 'Not available'}}</span>
+            </p>
+            <p>League:
+              <span>{{team.strLeague || 'Not available'}}</span>
+            </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="teams-collection">
+      <h5>Nominated for team of the year:</h5>
+      <div ng-repeat="(key, value) in favoriteTeams">{{key}}:{{value}} </div>
+      <div>
+        <form ng-submit="saveData(inputTeam)">
+          <div class="teams">
+            <lebel>Vote for your favorite (1 for Milan, 2 for Inter, 3 for Juventus:):</lebel>
+            <input type="number" name="quantity" min="1" max="3" data-ng-model="inputTeam" placeholder="vote here" class="form-control input-lg"/>
+          </div>
+           <input type="submit" id="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
