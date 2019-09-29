@@ -1,2 +1,2 @@
 # SPA-using-AngularJS
-Using AngularJS and free API from www.thesportsdb.com 
+Using AngularJS and free API from www.thesportsdb.com Created a simple SPA application for showcasing all football teams in Italy. Provides information for every team, for its stadium, team manager and the league it plays in. Addditional to that you can search for a team using the form on the top. On the left side you can see the top teams nominated for team of the year (a list of 3). The end user can vote for their favorite team and increase its chance to win :) Not having a server to save data, the local storage was used in order to simulate it.
