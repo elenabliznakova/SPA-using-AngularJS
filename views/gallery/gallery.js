@@ -5,9 +5,9 @@ app.controller('ImagesCtrl', ['$scope', '$q', '$compile', '$window', '$http', '$
 		$scope.setLocalStorage = function (){
 			if (Object.keys($localstorage.getObject('Teams')).length == 0){
 				$localstorage.setObject('Teams', {
-					Milan: '0',
-					Inter: '0',
-					Juventus: '0'
+					Milan: 365,
+					Inter: 289,
+					Juventus: 370
 				});
 			}
 			$scope.favoriteTeams = $localstorage.getObject('Teams')
@@ -15,11 +15,11 @@ app.controller('ImagesCtrl', ['$scope', '$q', '$compile', '$window', '$http', '$
 
 		$scope.saveData = function (inputTeam) {
 			if(inputTeam == 1){
-				$scope.favoriteTeams.Milan = parseInt($scope.favoriteTeams.Milan) + 1;
+				$scope.favoriteTeams.Milan = $scope.favoriteTeams.Milan + 1;
 			} else if (inputTeam == 2){
-				$scope.favoriteTeams.Inter = parseInt($scope.favoriteTeams.Inter) + 1;
+				$scope.favoriteTeams.Inter = $scope.favoriteTeams.Inter + 1;
 			}else {
-				$scope.favoriteTeams.Juventus = parseInt($scope.favoriteTeams.Juventus) + 1;
+				$scope.favoriteTeams.Juventus = $scope.favoriteTeams.Juventus + 1;
 			}
 			$localstorage.setObject('Teams', $scope.favoriteTeams);
 			$scope.inputTeam = ''
